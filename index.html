@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arshia Karkhanehie | Python & AI Engineer</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
     <style>
         :root {
             --bg-main: #0B0F19;
@@ -20,11 +22,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
             color: var(--text-main);
             display: flex;
             justify-content: center;
@@ -32,200 +34,209 @@
             min-height: 100vh;
             padding: 1.5rem;
             overflow-x: hidden;
-            position: relative;
-            /* Background keyboard image setup */
-            background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
 
-        /* Pseudo-element for blur */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            filter: blur(10px) brightness(0.6); /* Adjust blur and darkness here */
-            z-index: -2;
-        }
-
-        body::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            bottom: -50px; right: -50px;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(56, 189, 248, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom left,
+                    rgba(56, 189, 248, 0.10),
+                    transparent 30%
+                ),
+                #0B0F19;
         }
 
         .card {
-            background-color: rgba(19, 26, 38, 0.85); /* Slightly translucent for glass effect */
+            background: rgba(19, 26, 38, 0.65);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 2.5rem;
             width: 100%;
-            max-width: 440px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 520px;
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow:
+                0 25px 50px rgba(0,0,0,.5),
+                0 0 40px rgba(56,189,248,.08);
+
             text-align: center;
-            backdrop-filter: blur(5px); /* Internal blur for glassmorphism */
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all .3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, .35);
         }
 
         .avatar-container {
             position: relative;
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 1.5rem auto;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
         }
 
         .avatar {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1E293B 0%, #38BDF8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--border);
-            overflow: hidden; /* Ensures image stays circular */
+            overflow: hidden;
+
+            border: 2px solid rgba(56, 189, 248, .25);
+            background: linear-gradient(
+                135deg,
+                #1E293B,
+                #38BDF8
+            );
         }
 
-        /* Style for the face image inside the avatar */
         .avatar img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Prevents distortion */
+            object-fit: cover;
         }
 
         .status-badge {
             position: absolute;
             bottom: 0;
             right: 0;
-            background-color: #059669;
-            color: #ECFDF5;
-            font-size: 0.75rem;
+
+            background: #059669;
+            color: white;
+
+            font-size: .75rem;
             font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 12px;
-            border: 2px solid var(--bg-card);
+
+            padding: .25rem .6rem;
+            border-radius: 999px;
+
             display: flex;
             align-items: center;
             gap: 4px;
-            z-index: 1; /* Keeps badge above image */
+
+            border: 2px solid var(--bg-card);
         }
 
         .status-dot {
             width: 6px;
             height: 6px;
-            background-color: #34D399;
+            background: #34D399;
             border-radius: 50%;
+
             animation: pulse 2s infinite;
         }
 
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.5rem;
-        }
-        .social-icons {
+        .name-row {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: .5rem;
+            flex-wrap: wrap;
         }
-        
-        .social-icons a {
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+
+        .name-row a {
             color: var(--text-muted);
-            transition: all 0.2s ease;
+            transition: all .2s ease;
         }
-        
-        .social-icons a:hover {
+
+        .name-row a:hover {
             color: var(--accent);
             transform: translateY(-2px);
         }
-        
-        .social-icons i {
+
+        .name-row i {
             width: 20px;
             height: 20px;
         }
 
         .title {
             color: var(--accent);
-            font-size: 0.95rem;
+
+            font-size: .95rem;
             font-weight: 600;
+
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: .08em;
+
             margin-bottom: 1.25rem;
         }
 
         .bio {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+
+            font-size: .95rem;
+            line-height: 1.7;
+
             margin-bottom: 1.75rem;
         }
 
         .tags {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 0.5rem;
+            flex-wrap: wrap;
+            gap: .5rem;
+
             margin-bottom: 2rem;
         }
 
         .tag {
-            background-color: var(--accent-muted);
+            background: var(--accent-muted);
             color: var(--accent);
-            font-size: 0.8rem;
+
+            padding: .4rem .8rem;
+
+            border-radius: 999px;
+            font-size: .8rem;
             font-weight: 500;
-            padding: 0.35rem 0.75rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(56, 189, 248, 0.1);
+
+            border: 1px solid rgba(56,189,248,.12);
         }
 
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: .75rem;
         }
 
         .btn {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background-color: var(--accent-muted);
-            color: var(--text-main);
+            align-items: center;
+
             text-decoration: none;
+            color: var(--text-main);
+
+            background: var(--accent-muted);
+
             padding: 1rem 1.25rem;
+
             border-radius: 14px;
-            font-weight: 500;
-            font-size: 0.95rem;
             border: 1px solid var(--border);
-            transition: all 0.2s ease;
+
+            transition: all .2s ease;
         }
 
         .btn:hover {
-            background-color: var(--accent);
+            background: var(--accent);
             color: var(--bg-main);
-            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .btn-left {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: .75rem;
         }
 
         .btn i {
@@ -234,87 +245,109 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+            0% {
+                transform: scale(.95);
+                box-shadow: 0 0 0 0 rgba(52,211,153,.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(52,211,153,0);
+            }
+
+            100% {
+                transform: scale(.95);
+                box-shadow: 0 0 0 0 rgba(52,211,153,0);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="avatar-container">
-            <div class="avatar">
-                <img src="profile.jpg" alt="Arshia Karkhanehie" />
-            </div>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>Building</span>
-            </div>
+<div class="card">
+
+    <div class="avatar-container">
+        <div class="avatar">
+            <img src="profile.jpg" alt="Arshia Karkhanehie">
         </div>
 
-        <h1>Arshia Karkhanehie</h1>
-        <div class="social-icons">
-            <a href="https://github.com/ArshiaA99" target="_blank">
-                <i data-lucide="github"></i>
-            </a>
-        
-            <a href="https://www.linkedin.com/in/arshia-karkhanehie-728562249/" target="_blank">
-                <i data-lucide="linkedin"></i>
-            </a>
-        </div>
-        <p class="title">Python & AI Engineer</p>
-        
-        <p class="bio">
-            Specializing in intelligent backend architectures, production-grade <strong>RAG pipeline development</strong>, and end-to-end <strong>AI automation</strong> workflows.
-        </p>
-
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">RAG</span>
-            <span class="tag">AI Automation</span>
-            <span class="tag">LLMs</span>
-            <span class="tag">FastAPI</span>
-        </div>
-
-        <div class="links-container">
-            <a href="https://github.com/ArshiaA99" target="_blank" class="btn">
-                <span class="btn-left">
-                    <i data-lucide="github"></i>
-                    GitHub
-                </span>
-                <i data-lucide="arrow-up-right"></i>
-            </a>
-            
-            <a href="https://www.linkedin.com/in/arshia-karkhanehie-728562249/" target="_blank" class="btn">
-                <span class="btn-left">
-                    <i data-lucide="linkedin"></i>
-                    LinkedIn
-                </span>
-                <i data-lucide="arrow-up-right"></i>
-            </a>
-
-            <a href="https://t.me/arshia_itis" target="_blank" class="btn">
-                <span class="btn-left">
-                    <i data-lucide="send"></i>
-                    Telegram
-                </span>
-                <i data-lucide="arrow-up-right"></i>
-            </a>
-
-            <a href="mailto:arshiak83@gmail.com" class="btn">
-                <span class="btn-left">
-                    <i data-lucide="mail"></i>
-                    Email Me
-                </span>
-                <i data-lucide="arrow-up-right"></i>
-            </a>
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Building</span>
         </div>
     </div>
 
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
+    <div class="name-row">
+        <h1>Arshia Karkhanehie</h1>
+
+        <a href="https://github.com/ArshiaA99" target="_blank">
+            <i data-lucide="github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/arshia-karkhanehie-728562249/" target="_blank">
+            <i data-lucide="linkedin"></i>
+        </a>
+    </div>
+
+    <p class="title">Python & AI Engineer</p>
+
+    <p class="bio">
+        Specializing in intelligent backend architectures,
+        production-grade <strong>RAG pipeline development</strong>,
+        and end-to-end <strong>AI automation</strong> workflows.
+    </p>
+
+    <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">RAG</span>
+        <span class="tag">AI Automation</span>
+        <span class="tag">LLMs</span>
+        <span class="tag">FastAPI</span>
+    </div>
+
+    <div class="links-container">
+
+        <a href="https://github.com/ArshiaA99" target="_blank" class="btn">
+            <span class="btn-left">
+                <i data-lucide="github"></i>
+                GitHub
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/arshia-karkhanehie-728562249/" target="_blank" class="btn">
+            <span class="btn-left">
+                <i data-lucide="linkedin"></i>
+                LinkedIn
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <a href="https://t.me/arshia_itis" target="_blank" class="btn">
+            <span class="btn-left">
+                <i data-lucide="send"></i>
+                Telegram
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <a href="mailto:arshiak83@gmail.com" class="btn">
+            <span class="btn-left">
+                <i data-lucide="mail"></i>
+                Email Me
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    lucide.createIcons();
+});
+</script>
+
 </body>
 </html>
