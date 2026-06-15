@@ -34,7 +34,7 @@
             overflow-x: hidden;
             position: relative;
             /* Background keyboard image setup */
-            background-image: url('https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=1600&auto=format&fit=crop'); /* Corrected link for the requested keyboard image */
+            background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=100&w=2400&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -139,6 +139,27 @@
             letter-spacing: -0.025em;
             margin-bottom: 0.5rem;
         }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons a {
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .social-icons i {
+            width: 20px;
+            height: 20px;
+        }
 
         .title {
             color: var(--accent);
@@ -233,6 +254,15 @@
         </div>
 
         <h1>Arshia Karkhanehie</h1>
+        <div class="social-icons">
+            <a href="https://github.com/ArshiaA99" target="_blank">
+                <i data-lucide="github"></i>
+            </a>
+        
+            <a href="https://www.linkedin.com/in/arshia-karkhanehie-728562249/" target="_blank">
+                <i data-lucide="linkedin"></i>
+            </a>
+        </div>
         <p class="title">Python & AI Engineer</p>
         
         <p class="bio">
