@@ -123,11 +123,15 @@
 
             border: 2px solid var(--bg-card);
         }
-
+        
         .fa-brands {
             font-size: 22px;
             width: 22px;
-            text-align: center;
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
         }
 
         .status-dot {
@@ -243,14 +247,16 @@
         }
 
         .btn-left {
-            display: flex;
+            display: grid;
+            grid-template-columns: 24px auto;
             align-items: center;
-            gap: .75rem;
+            column-gap: 12px;
         }
-
-        .btn i {
-            width: 18px;
-            height: 18px;
+        
+        .btn-left svg {
+            width: 22px;
+            min-width: 22px;
+            text-align: center;
         }
 
         @keyframes pulse {
